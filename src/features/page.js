@@ -1,4 +1,5 @@
 import ga from '../ga'
+import config from '../config'
 import { warn } from '../utils'
 
 /**
@@ -55,9 +56,9 @@ export default function page (...args) {
   const value = args[0]
 
   if (value.constructor.name === 'VueRouter') {
-    ga('send', 'pageview', getDataFromRouter(value, args))
+    ga(`${config.sendPrefix}.send`, 'pageview', getDataFromRouter(value, args))
     return
   }
 
-  ga('send', 'pageview', ...args)
+  ga(`${config.sendPrefix}.send`, 'pageview', ...args)
 }
