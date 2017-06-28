@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "webpack --config config/dev.js -w",
     "build": "node config/build.js",
-    "prepublish": "node config/build.js"
+    "prepublish": "node config/build.js",
+    "postinstall":  "node config/build.js"
   },
   "keywords": [
     "Google",
