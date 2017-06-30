@@ -30,7 +30,7 @@ rollup.rollup({
     ]
   })
   .then(function (bundle) {
-    return write('dist/' + pack.name + '.js', bundle.generate({
+    return write('dist/vue-analytics.js', bundle.generate({
       format: 'umd',
       moduleName: classify(pack.name),
       banner: banner
@@ -51,12 +51,12 @@ rollup.rollup({
   .then(function (bundle) {
     var code = bundle.generate({
       format: 'umd',
-      moduleName: classify(pack.name)
+      moduleName: classify('vue-analytics')
     }).code
     var minified = banner + '\n' + uglify.minify(code, {
       fromString: true
     }).code
-    return write('dist/' + pack.name + '.min.js', minified)
+    return write('dist/vue-analytics.min.js', minified)
   })
   .then(zip)
 })
@@ -83,11 +83,11 @@ function write (dest, code) {
 
 function zip () {
   return new Promise(function (resolve, reject) {
-    fs.readFile('dist/' + pack.name + '.min.js', function (err, buf) {
+    fs.readFile('dist/vue-analytics.min.js', function (err, buf) {
       if (err) return reject(err)
       zlib.gzip(buf, function (err, buf) {
         if (err) return reject(err)
-        write('dist/' + pack.name + '.min.js.gz', buf).then(resolve)
+        write('dist/vue-analytics.min.js.gz', buf).then(resolve)
       })
     })
   })

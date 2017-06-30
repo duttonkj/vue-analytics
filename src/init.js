@@ -13,7 +13,7 @@ export default function init (router, callback) {
     warn('Please enter a Google Analaytics tracking ID', url)
     return
   }
-
+  console.log('vue analyitcs')
   const options = config.userId || {}
   const debugSource = config.debug.enabled ? '_debug' : ''
   const source = `https://www.google-analytics.com/analytics${debugSource}.js`
@@ -43,9 +43,11 @@ export default function init (router, callback) {
         if (ids.length > 1) {
           // we need to register the name used by the ga methods so that
           // when a method is used Google knows which account did it
-          options['name'] = getName(id)
+          options['name'] = config.sendPrefix
         }
-
+console.log('GA Options')
+console.log(options)
+options['name'] = config.sendPrefix
         window.ga('create', id, 'auto', options)
       })
 

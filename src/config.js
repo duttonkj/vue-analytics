@@ -18,7 +18,7 @@ let config = {
   id: null,
   userId: null,
   ignoreRoutes: [],
-  sendPrefix: ''
+  sendPrefix: null
 }
 
 /**

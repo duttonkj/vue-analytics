@@ -59,6 +59,5 @@ export default function page (...args) {
     ga(`${config.sendPrefix}.send`, 'pageview', getDataFromRouter(value, args))
     return
   }
-
   ga(`${config.sendPrefix}.send`, 'pageview', ...args)
 }

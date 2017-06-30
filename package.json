@@ -1,10 +1,10 @@
 {
-  "name": "vue-analytics",
+  "name": "@picnic-software/vue-analytics",
   "version": "4.1.2",
   "description": "Google Analytics plugin for Vue",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MatteoGabriele/vue-analytics"
+    "url": "git+https://github.com/duttonkj/vue-analytics.git"
   },
   "scripts": {
     "dev": "webpack --config config/dev.js -w",
@@ -25,10 +25,7 @@
   "files": [
     "dist"
   ],
-  "author": {
-    "name": "Matteo Gabriele",
-    "email": "m.gabriele.dev@gmail.com"
-  },
+  "author": "Matteo Gabriele <m.gabriele.dev@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/MatteoGabriele/vue-analytics/issues"
@@ -58,5 +55,8 @@
   },
   "dependencies": {
     "load-script": "^1.0.0"
+  },
+  "directories": {
+    "doc": "docs"
   }
 }

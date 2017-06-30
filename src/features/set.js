@@ -1,4 +1,5 @@
 import ga from '../ga'
+import config from '../config'
 import { warn } from '../utils'
 
 /**
@@ -13,10 +14,11 @@ export default function set (...data) {
   if (!data.length) {
     return
   }
+  console.log('set dimensions')
 
   if (typeof data[0] === 'object' && data[0].constructor === Object) {
     // Use the ga.set with an object literal
-    ga('set', data[0])
+    ga(`${config.sendPrefix}.set`, data[0])
     return
   }
 
@@ -26,5 +28,5 @@ export default function set (...data) {
   }
 
   // Use ga.set with field name and field value
-  ga('set', data[0], data[1])
+  ga(`${config.sendPrefix}.set`, data[0], data[1])
 }
